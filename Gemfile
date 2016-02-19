@@ -38,7 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 # Use slim for reduce the syntax to the essential parts.
-gem 'slim', '~> 3.0', '>= 3.0.6'
+gem 'slim-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
