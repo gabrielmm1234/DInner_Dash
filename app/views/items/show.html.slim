@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @item.Name
+p
+  strong Description:
+  = @item.Description
+p
+  strong Price:
+  = @item.Price
+
+= link_to 'Edit', edit_item_path(@item)
+'|
+= link_to 'Back', items_path

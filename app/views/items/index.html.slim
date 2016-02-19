@@ -1,0 +1,33 @@
+.row.container-fluid
+
+h1 Listing items
+
+table.table.table-hover.table-responsive
+
+  thead
+    tr
+      th ID
+      th Name
+      th Description
+      th Price
+      th
+      th
+      th
+
+  tbody
+    - @items.each do |item|
+      tr
+        td 
+          strong
+            = item.id
+        td = item.Name
+        td = item.Description
+        td = item.Price
+        td = link_to 'Show', item
+        td = link_to 'Edit', edit_item_path(item)
+        td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Item', new_item_path, class:'btn btn-primary btn-empty'
+
