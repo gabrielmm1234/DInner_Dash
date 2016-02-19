@@ -1,1 +1,0 @@
-class CreateItemsAndCategories < ActiveRecord::Migration
