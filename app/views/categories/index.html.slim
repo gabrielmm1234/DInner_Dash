@@ -1,16 +1,19 @@
 h1 Listing categories
 
-table
+table.table.table-hover.table-responsive
   thead
     tr
-      th Name
-      th
+      th ID
+      th Nome
       th
       th
 
   tbody
     - @categories.each do |category|
       tr
+        td 
+          strong
+            = category.id
         td = category.name
         td = link_to 'Show', category
         td = link_to 'Edit', edit_category_path(category)
@@ -18,4 +21,4 @@ table
 
 br
 
-= link_to 'New Category', new_category_path
+= link_to 'New Category', new_category_path, class:'btn btn-primary btn-empty'
