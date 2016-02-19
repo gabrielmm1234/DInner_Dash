@@ -10,4 +10,7 @@ nav.navbar.navbar-default
 					a href= profiles_path Profiles
 			ul.nav.navbar-nav.navbar-right
 				li
-					a href= categories_path LogIn
+					- if user_signed_in?
+						= link_to "Sign out", destroy_user_session_path, :method => :delete
+					- if not user_signed_in?
+						a href= '/users/sign_in' Sign In
