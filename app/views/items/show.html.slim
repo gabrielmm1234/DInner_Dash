@@ -8,7 +8,7 @@ p
   = @item.Description
 p
   strong Price:
-  = @item.Price
+  = formata_preco(@item.Price)
 
 = link_to 'Edit', edit_item_path(@item)
 '|
