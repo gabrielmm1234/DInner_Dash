@@ -23,9 +23,12 @@ table.table.table-hover.table-responsive
         td = item.Name
         td = item.Description
         td = item.Price
-        td = link_to 'Show', item
-        td = link_to 'Edit', edit_item_path(item)
-        td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
+        - if can? :read,Item
+          td = link_to 'Show', item
+        - if can? :update,Item
+          td = link_to 'Edit', edit_item_path(item)
+        - if can? :destroy,Item
+          td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 

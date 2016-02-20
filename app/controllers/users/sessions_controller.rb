@@ -1,6 +1,8 @@
 class Users::SessionsController < Devise::SessionsController
  before_action :authenticate_user!
  before_filter :configure_sign_in_params, only: [:create]
+ before_action :set_user, only: [:show, :edit, :update, :destroy]
+ load_and_authorize_resource except: [:create]
 
   # GET /resource/sign_in
    def new
