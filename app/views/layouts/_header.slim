@@ -5,21 +5,23 @@ nav.navbar.navbar-default
 		div.collapse.navbar-collapse
 			ul.nav.navbar-nav
 				li
-					a href= categories_path Categorias
-				li
-					a href= profiles_path Profiles
-				li
-<<<<<<< HEAD
-					a href= items_path Itens
+					-if can? :manage, Category
+						a href= categories_path Categorias
+
+					-if can? :manage, Profile
+						a href= profiles_path Profiles
 			ul.nav.navbar-nav.navbar-right
 				li
 					a href= categories_path Login
-=======
-					a href= items_path Items
+
+					-if can? :manage, Item
+						a href= items_path Items
+
 			ul.nav.navbar-nav.navbar-right
+				-if user_signed_in?
+						span = current_user.first_name
 				li
 					- if user_signed_in?
 						= link_to "Sign out", destroy_user_session_path, :method => :delete
 					- if not user_signed_in?
 						a href= '/users/sign_in' Sign In
->>>>>>> a26cb8e2d6668a7fb37b1b13664396785892e8f7
