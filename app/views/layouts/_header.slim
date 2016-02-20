@@ -5,10 +5,13 @@ nav.navbar.navbar-default
 		div.collapse.navbar-collapse
 			ul.nav.navbar-nav
 				li
+					-if can? :manage, Category
 						a href= categories_path Categorias
 				li
+					-if can? :manage, Profile
 						a href= profiles_path Profiles
 				li
+					-if can? :manage, Item
 						a href= items_path Items
 			ul.nav.navbar-nav.navbar-right
 				-if user_signed_in?

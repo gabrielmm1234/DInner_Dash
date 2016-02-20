@@ -31,6 +31,6 @@ table.table.table-hover.table-responsive
           td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
-
-= link_to 'New Item', new_item_path, class:'btn btn-primary btn-empty'
+-if can? :create,Item
+  = link_to 'New Item', new_item_path, class:'btn btn-primary btn-empty'
 
