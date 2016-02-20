@@ -11,7 +11,6 @@ nav.navbar.navbar-default
 					-if can? :manage, Profile
 						a href= profiles_path Profiles
 				li
-					-if can? :manage, Item
 						a href= items_path Items
 			ul.nav.navbar-nav.navbar-right
 				-if user_signed_in?
