@@ -3,4 +3,9 @@
 // child selectors or sibling selectors. Essentially, a base style says that 
 // wherever this element is on the page, it should look like this.
 
-@import 'normalize'
+@import 'normalize';
+
+body{
+	background-color: #c2c2d6;
+	padding-bottom: 70px;
+}
