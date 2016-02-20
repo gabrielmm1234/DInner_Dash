@@ -10,7 +10,7 @@ table.table.table-hover.table-responsive
       th Name
       th Description
       th Price
-      th
+      th Category
       th
       th
 
@@ -23,6 +23,7 @@ table.table.table-hover.table-responsive
         td = item.Name
         td = item.Description
         td = formata_preco(item.Price)
+        td = item.categories.name
         td = link_to 'Show', item
         td = link_to 'Edit', edit_item_path(item)
         td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
