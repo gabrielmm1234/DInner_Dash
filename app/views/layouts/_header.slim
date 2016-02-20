@@ -12,6 +12,9 @@ nav.navbar.navbar-default
 						a href= profiles_path Profiles
 				li
 						a href= items_path Items
+				li
+					-if can? :manage, User
+						a href= '/members' Members
 			ul.nav.navbar-nav.navbar-right
 				-if user_signed_in?
 						span = current_user.first_name
