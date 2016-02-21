@@ -7,13 +7,10 @@ nav.navbar.navbar-default
 				li
 					-if can? :manage, Category
 						a href= categories_path Categorias
-
+				li			
 					-if can? :manage, Profile
 						a href= profiles_path Profiles
-			ul.nav.navbar-nav.navbar-right
 				li
-					a href= categories_path Login
-
 					-if can? :manage, Item
 						a href= items_path Items
 
