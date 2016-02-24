@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20160223004117) do
     t.integer "item_id",     null: false
   end
 
+  add_index "categories", ["item_id"], name: "index_categories_on_item_id"
+
   create_table "items", force: :cascade do |t|
     t.string   "Name"
     t.string   "Description"

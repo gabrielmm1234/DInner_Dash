@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.1'
-
+gem 'protected_attributes'
 gem 'devise'
 gem 'cancan'
 gem 'bootstrap-sass', '~> 3.3.5'

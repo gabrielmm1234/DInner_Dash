@@ -1,0 +1,32 @@
+.row.container-fluid
+
+
+h1 Listing Members
+
+table.table.table-hover.table-responsive
+  thead
+    tr
+      th ID
+      th First Name
+      th Email
+      th profile
+      th
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td 
+          strong
+            = user.id
+        td = user.first_name
+        td = user.email
+        td = user.profile.name
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New User', new_user_path , class:'btn btn-primary btn-empty'
