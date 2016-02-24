@@ -13,6 +13,7 @@ table.table.table-hover.table-responsive
       th Category
       th
       th
+      th
 
   tbody
     - @items.each do |item|
@@ -23,7 +24,8 @@ table.table.table-hover.table-responsive
         td = item.Name
         td = item.Description
         td = formata_preco(item.Price)
-        td = item.Price
+        - item.category.each do |category|
+          td = category.name
         - if can? :read,Item
           td = link_to 'Show', item
         - if can? :update,Item
