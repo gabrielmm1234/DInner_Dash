@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :profiles
+  
   root to: "home#index"
   get '/home' => 'home#index'
   get '/members' => 'users#index'
