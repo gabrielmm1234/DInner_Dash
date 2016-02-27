@@ -32,7 +32,7 @@ sa = categorias[3].id
 so = categorias[4].id
 be = categorias[5].id
 
-Item.delete_all
+#Item.delete_all
 a_item = [	{Name: "Macarrao", Description: "Muito bom", Price: 22.50, category_ids: pq},
 			{Name: "Carpaccio", Description: "Caro pra porra", Price: 50.40, category_ids: pf},
 			{Name: "Batata Frita", Description: "Perfeito", Price: 18.99, category_ids: en},
@@ -40,3 +40,9 @@ a_item = [	{Name: "Macarrao", Description: "Muito bom", Price: 22.50, category_i
 			{Name: "Sorvete", Description: "Engorda", Price: 5.99, category_ids: so},
 			{Name: "Cerveja", Description: "Meu deus", Price: 4.99, category_ids: be}]
 Item.create(a_item)
+
+OrderStatus.delete_all
+OrderStatus.create! id: 1, name: "In Progress"
+OrderStatus.create! id: 2, name: "Placed"
+OrderStatus.create! id: 3, name: "Shipped"
+OrderStatus.create! id: 4, name: "Cancelled"
