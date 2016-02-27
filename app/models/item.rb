@@ -1,4 +1,5 @@
 class Item < ActiveRecord::Base
+	has_many :order_items
 	has_and_belongs_to_many :category
 	has_many :order_items
 	validates_presence_of :Name, :Description, :Price
