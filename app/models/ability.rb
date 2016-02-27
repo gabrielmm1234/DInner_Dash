@@ -8,6 +8,8 @@ class Ability
           can :manage, :all
       else
           can :read, Item
+          can :manage,OrderItem
+          can :manage,Order
       end
     end
   end
