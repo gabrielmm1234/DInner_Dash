@@ -3,7 +3,7 @@
 h1 Listing items
 
 table.table.table-hover.table-responsive
-
+  = render "categoria_row"
   tbody
     - @items.each do |item|
       = render "item_row", item: item, order_item: @order_item

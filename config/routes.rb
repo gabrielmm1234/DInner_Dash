@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :items
   resources :categories
   resources :profiles
-  
+  post '/search' => 'categories#search'
   root to: "home#index"
   get '/home' => 'home#index'
   get '/members' => 'users#index'

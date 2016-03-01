@@ -1,0 +1,11 @@
+.well
+  .row
+    .col-xs-8
+      h4 Pesquise por categoria
+    .col-xs-4
+      = form_for Category.new,:url => { :controller => "categories",:action => "search" } do |f|
+        .field
+          = f.label :name
+          = f.text_field :name
+        .input-group-btn
+          = f.submit "Search", class: "btn btn-primary"

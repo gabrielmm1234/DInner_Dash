@@ -21,6 +21,14 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+  def search
+    @category = Category.find_by_name(params[:category][:name])
+    respond_to do |format|
+      format.html  {"items/search"}
+      format.json { render json: @category }
+    end
+  end
+
   # POST /categories
   # POST /categories.json
   def create
