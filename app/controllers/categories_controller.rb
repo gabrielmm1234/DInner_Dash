@@ -22,7 +22,7 @@ class CategoriesController < ApplicationController
   end
 
   def search
-    @category = Category.find_by_name(params[:category][:name])
+    @category = Category.find(params[:category][:name])
     respond_to do |format|
       format.html  {"items/search"}
       format.json { render json: @category }
