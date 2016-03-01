@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource except: [:create]
+  load_and_authorize_resource except: [:create,:search]
   # GET /categories
   # GET /categories.json
   def index
