@@ -9,12 +9,17 @@ p
 p
   strong Total:
   = @order.subtotal
-p
-  strong Items:
-  br
-  -@order.order_items.each do |oi|
-  	= oi.item.Name
-  	br
+
+  table.table.table-hover.table-responsive
+	  thead
+	    tr
+	      th Name
+	      th Line Item - Subtotal
+	    tbody
+	  	-@order.order_items.each do |oi|
+	  		tr
+			  	td = oi.item.Name
+			  	td = oi.unit_price * oi.quantity
 
 '|
 = link_to 'Back', orders_path
