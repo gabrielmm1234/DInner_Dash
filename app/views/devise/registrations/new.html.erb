@@ -13,10 +13,7 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
   
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.select :profile_id, Profile.all.map{ |p| [p.name, p.id]}, {}, class:'form-control' %>
-  </div>
+  <%= f.hidden_field :profile_id, value: 2%><br />
 
   <div class="field">
     <%= f.label :password %>
