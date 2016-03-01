@@ -1,0 +1,20 @@
+p#notice = notice
+
+p
+  strong ID:
+  = @order.id
+p
+  strong Status:
+  = @order.order_status.name
+p
+  strong Total:
+  = @order.subtotal
+p
+  strong Items:
+  br
+  -@order.order_items.each do |oi|
+  	= oi.item.Name
+  	br
+
+'|
+= link_to 'Back', orders_path

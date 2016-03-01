@@ -9,7 +9,8 @@ class Ability
       else
           can :read, Item
           can :manage,OrderItem
-          can :manage,Order
+          can :create,Order
+          can :update,Order
       end
     end
   end

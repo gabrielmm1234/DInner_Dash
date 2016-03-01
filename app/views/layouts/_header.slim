@@ -17,6 +17,9 @@ nav.navbar.navbar-default
 					-if can? :manage, User
 						a href= '/members' Members
 				li
+					-if can? :manage, Order
+						a href= orders_path Orders
+				li
 					-if !session[:order_id].nil?
 						= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "cart-text btn btn-link" 
 			ul.nav.navbar-nav.navbar-right
