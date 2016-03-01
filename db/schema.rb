@@ -17,10 +17,7 @@ ActiveRecord::Schema.define(version: 20160227182255) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "item_id"
   end
-
-  add_index "categories", ["item_id"], name: "index_categories_on_item_id"
 
   create_table "categories_items", id: false, force: :cascade do |t|
     t.integer "category_id"
@@ -33,13 +30,10 @@ ActiveRecord::Schema.define(version: 20160227182255) do
   create_table "items", force: :cascade do |t|
     t.string   "Name"
     t.string   "Description"
-    t.float    "Price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "category_id"
+    t.decimal  "Price",       precision: 12, scale: 2
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
-
-  add_index "items", ["category_id"], name: "index_items_on_category_id"
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "item_id"
