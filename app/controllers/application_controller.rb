@@ -14,9 +14,13 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if !session[:order_id].nil?
-      Order.find(session[:order_id])
+      order = Order.find(session[:order_id])
     else
-      Order.new
+      if user_signed_in?
+        Order.new(user_id:current_user.id)
+      else
+        Order.new()
+      end
     end
   end
 

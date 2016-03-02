@@ -7,6 +7,8 @@ table.table.table-hover.table-responsive
   thead
     tr
       th ID
+      th Purchaser Name
+      th Purchaser Email
       th status
       th total
       th
@@ -18,6 +20,8 @@ table.table.table-hover.table-responsive
         td 
           strong 
             = order.id
+        td = order.user.first_name
+        td = order.user.email
         td = order.order_status.name
         td = order.subtotal
         td = link_to 'Show', order

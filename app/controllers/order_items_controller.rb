@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  before_action :update_user
   def create
     #bla = OrderItem.new(order_item_params)
     @order = current_order
@@ -23,5 +24,13 @@ class OrderItemsController < ApplicationController
 private
   def order_item_params
     params.require(:order_item).permit(:quantity, :item_id,:unit_price)
+  end
+
+  def update_user
+    if !session[:order_id].nil?
+      @order = Order.find(session[:order_id])
+      @order.user_id = current_user.id
+      @order.save
+    end
   end
 end
