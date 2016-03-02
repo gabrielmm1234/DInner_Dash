@@ -1,0 +1,31 @@
+.row.container-fluid
+
+
+h1 Listing orders
+
+table.table.table-hover.table-responsive
+  thead
+    tr
+      th ID
+      th Purchaser Name
+      th Purchaser Email
+      th status
+      th total
+      th
+      th
+
+  tbody
+    - @order_status.orders.each do |p|
+      tr
+        td 
+          strong 
+            = p.id
+        td = p.user.first_name
+        td = p.user.email
+        td = p.order_status.name
+        td = p.subtotal
+        td = link_to 'Show', p
+        -if can? :destroy, Order
+          td = link_to 'Destroy', p, data: {:confirm => 'Are you sure?'}, :method => :delete
+        
+= link_to 'Previous menu', orders_path, class:'btn btn-primary btn-empty'

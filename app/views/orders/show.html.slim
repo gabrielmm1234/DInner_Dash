@@ -1,35 +1,37 @@
-p#notice = notice
+.row
+	.col-xs-8
+		p
+		  strong ID:
+		  = @order.id
+		p
+		  strong Status:
+		  = @order.order_status.name
+		p
+		  strong Total:
+		  = @order.subtotal
+		p
+		  strong Pedido realizado dia:
+		  = @order.created_at.strftime("%d/%m/%y")
+		p
+		  strong Pedido realizado hora:
+		  = @order.created_at.strftime("%T")
 
-p
-  strong ID:
-  = @order.id
-p
-  strong Status:
-  = @order.order_status.name
-p
-  strong Total:
-  = @order.subtotal
-p
-  strong Pedido realizado dia:
-  = @order.created_at.strftime("%d/%m/%y")
-p
-  strong Pedido realizado hora:
-  = @order.created_at.strftime("%T")
+	.col-xs-4
+		-if can? :manage,Order
+			= link_to 'Update',edit_order_path(@order), class:'btn btn-primary btn-empty'
+table.table.table-hover.table-responsive
+			  thead
+			    tr
+			      th Name
+			      th Price
+			      th Quantity
+			      th Line Item - Subtotal
+			    tbody
+			  	-@order.order_items.each do |oi|
+			  		tr
+					  	td = link_to oi.item.Name,oi.item
+					  	td = oi.unit_price
+					  	td = oi.quantity
+					  	td = oi.unit_price * oi.quantity
 
-  table.table.table-hover.table-responsive
-	  thead
-	    tr
-	      th Name
-	      th Price
-	      th Quantity
-	      th Line Item - Subtotal
-	    tbody
-	  	-@order.order_items.each do |oi|
-	  		tr
-			  	td = link_to oi.item.Name,oi.item
-			  	td = oi.unit_price
-			  	td = oi.quantity
-			  	td = oi.unit_price * oi.quantity
-
-'|
 = link_to 'Back', orders_path

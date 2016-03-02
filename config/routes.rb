@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :orders
   
   post 'order_statuses/search_orders' => 'order_statuses#search_orders'
+  post '/update' => 'orders#update'
   post '/search' => 'categories#search'
   root to: "home#index"
   get '/home' => 'home#index'

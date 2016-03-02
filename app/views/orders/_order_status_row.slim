@@ -1,0 +1,11 @@
+.well
+  .row
+    .col-xs-8
+      h4 Pesquise pelo status do pedido
+    .col-xs-4
+      = form_for OrderStatus.new,:url => { :controller => "order_statuses",:action => "search_orders" } do |f|
+        .field
+          = f.label :name
+          = f.select :name, OrderStatus.all.map{ |p| [p.name, p.id]}, {}, class:'form-control'
+        .input-group-btn
+          = f.submit "Search", class: "btn btn-primary"
