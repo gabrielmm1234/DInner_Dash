@@ -7,6 +7,7 @@ nav.navbar.navbar-default
 				li
 					-if can? :manage, Category
 						a href= categories_path Categorias
+					
 				li			
 					-if can? :manage, Profile
 						a href= profiles_path Profiles
@@ -25,6 +26,10 @@ nav.navbar.navbar-default
 			ul.nav.navbar-nav.navbar-right
 				-if user_signed_in?
 						span = current_user.first_name
+
+				li
+					= render 'layouts/cart_text'
+
 				li
 					- if user_signed_in?
 						= link_to "Sign out", destroy_user_session_path, :method => :delete
