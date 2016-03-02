@@ -17,7 +17,7 @@ nav.navbar.navbar-default
 					-if can? :manage, User
 						a href= '/members' Members
 				li
-					-if can? :manage, Order
+					-if can? :read, Order
 						a href= orders_path Orders
 				li
 					-if !session[:order_id].nil?

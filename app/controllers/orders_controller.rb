@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @orders = Order.all
+    @orders = Order.accessible_by(current_ability, :read) 
   end
 
   # GET /profiles/1

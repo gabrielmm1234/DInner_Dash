@@ -25,5 +25,5 @@ table.table.table-hover.table-responsive
         td = order.order_status.name
         td = order.subtotal
         td = link_to 'Show', order
-        td = link_to 'Edit', edit_order_path(order)
-        td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete
+        -if can? :destroy, Order
+          td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete
