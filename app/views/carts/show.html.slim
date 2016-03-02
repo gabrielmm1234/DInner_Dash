@@ -1,8 +1,10 @@
-h1 Carrinho
-h3 = current_order.order_status.name
-p Pedido Feito em:
-h4 = current_order.created_at.strftime("%d/%m/%y")
-h5 = current_order.created_at.strftime("%T") 
-div
-	= render 'shopping_cart'
+- if !session[:order_id].nil?
+	h1 Carrinho
+	h3 = current_order.order_status.name
+	p Pedido Feito em:
+	h4 = current_order.created_at.strftime("%d/%m/%y")
+	h5 = current_order.created_at.strftime("%T") 
+	div
+		= render 'shopping_cart'
+p Adicione itens para começar um pedido!!
 
