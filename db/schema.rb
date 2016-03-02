@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227182255) do
+ActiveRecord::Schema.define(version: 20160301232851) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -19,13 +19,18 @@ ActiveRecord::Schema.define(version: 20160227182255) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "categories_items", id: false, force: :cascade do |t|
     t.integer "category_id"
     t.integer "item_id"
-  end
+=======
+  add_index "categories", ["item_id"], name: "index_categories_on_item_id"
 
-  add_index "categories_items", ["category_id"], name: "index_categories_items_on_category_id"
-  add_index "categories_items", ["item_id"], name: "index_categories_items_on_item_id"
+  create_table "categories_items", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "item_id",     null: false
+>>>>>>> 6acf6edfb3519c3a45f640dc333ec2d61b68cc8e
+  end
 
   create_table "items", force: :cascade do |t|
     t.string   "Name"
@@ -35,6 +40,19 @@ ActiveRecord::Schema.define(version: 20160227182255) do
     t.datetime "updated_at",                           null: false
   end
 
+<<<<<<< HEAD
+=======
+  add_index "items", ["category_id"], name: "index_items_on_category_id"
+
+  create_table "items_categories", id: false, force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "item_id"
+  end
+
+  add_index "items_categories", ["category_id"], name: "index_items_categories_on_category_id"
+  add_index "items_categories", ["item_id"], name: "index_items_categories_on_item_id"
+
+>>>>>>> 6acf6edfb3519c3a45f640dc333ec2d61b68cc8e
   create_table "order_items", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "order_id"
@@ -62,9 +80,11 @@ ActiveRecord::Schema.define(version: 20160227182255) do
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "user_id"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
