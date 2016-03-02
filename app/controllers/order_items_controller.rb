@@ -2,8 +2,14 @@ class OrderItemsController < ApplicationController
   def create
     #bla = OrderItem.new(order_item_params)
     @order = current_order
-    @order_item = @order.order_items.new(order_item_params)
-    @order_item.save
+    params = order_item_params
+    @order_item = @order.order_items.find_by(item_id: params[:item_id])
+    unless @order_item
+      @order_item = @order.order_items.new(params)
+      @order_item.save
+    else
+      @order_item.update(quantity: @order_item.quantity + params[:quantity].to_i)
+    end
     session[:order_id] = @order.id
   end
 

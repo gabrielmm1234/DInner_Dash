@@ -40,6 +40,11 @@ gem 'bcrypt', '~> 3.1.7'
 # Use slim for reduce the syntax to the essential parts.
 gem 'slim-rails'
 
+# Use carrierwave for image upload
+gem "carrierwave"
+# Use rmagick for resize images properly
+gem "rmagick"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

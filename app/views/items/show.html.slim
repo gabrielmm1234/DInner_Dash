@@ -9,6 +9,8 @@ p
 p
   strong Price:
   = formata_preco(@item.Price)
+p
+  = image_tag @item.image_url.to_s
 
 = link_to 'Edit', edit_item_path(@item)
 '|
