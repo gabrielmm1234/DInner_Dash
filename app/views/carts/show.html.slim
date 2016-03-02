@@ -6,5 +6,6 @@
 	h5 = current_order.created_at.strftime("%T") 
 	div
 		= render 'shopping_cart'
-p Adicione itens para começar um pedido!!
+- else
+	p Adicione itens para começar um pedido!!
 
