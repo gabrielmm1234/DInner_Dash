@@ -25,6 +25,11 @@ class ApplicationController < ActionController::Base
   end
 
  	def after_sign_in_path_for(resource)
+    if !session[:order_id].nil?
+      @order = Order.find(session[:order_id])
+      @order.user_id = current_user.id
+      @order.save
+    end
  		'/home'
 	end
 
