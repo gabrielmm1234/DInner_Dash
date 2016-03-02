@@ -15,6 +15,7 @@ table.table.table-hover.table-responsive
       th
 
   tbody
+    = render 'order_status_row'
     - @orders.each do |order|
       tr
         td 

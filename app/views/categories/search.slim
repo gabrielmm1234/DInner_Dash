@@ -17,3 +17,7 @@ h2 =@category.name
 	            = f.hidden_field :item_id, value: item.id
 	            = f.hidden_field :unit_price, value: item.Price
 	            = f.submit "Add to Cart", class: "btn btn-primary"
+
+= link_to 'Previous menu', items_path, class:'btn btn-primary btn-empty'
+
+

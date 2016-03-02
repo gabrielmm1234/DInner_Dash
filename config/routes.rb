@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'order_statuses/search_orders'
+
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :profiles
   resources :orders
+  
+  post 'order_statuses/search_orders' => 'order_statuses#search_orders'
   post '/search' => 'categories#search'
   root to: "home#index"
   get '/home' => 'home#index'
