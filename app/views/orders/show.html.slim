@@ -9,16 +9,23 @@
 		p
 		  strong Total:
 		  = @order.subtotal
-		p
+		p[style="color: green"]
 		  strong Pedido realizado dia:
 		  = @order.created_at.strftime("%d/%m/%y")
-		p
+		p[style="color: green"]
 		  strong Pedido realizado hora:
 		  = @order.created_at.strftime("%T")
 
 	.col-xs-4
 		-if can? :manage,Order
 			= link_to 'Update',edit_order_path(@order), class:'btn btn-primary btn-empty'
+		-if @order.order_status.name == 'Mark as Completed' || @order.order_status.name == 'Cancelled'
+			p[style="color: green"]
+			  strong Pedido atualizado dia:
+			  = @order.updated_at.strftime("%d/%m/%y")
+			p[style="color: green"]
+			  strong Pedido atualizado hora:
+			  = @order.updated_at.strftime("%T")
 table.table.table-hover.table-responsive
 			  thead
 			    tr
