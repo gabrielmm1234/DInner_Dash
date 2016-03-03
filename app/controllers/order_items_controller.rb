@@ -1,6 +1,5 @@
 class OrderItemsController < ApplicationController
   def create
-    #bla = OrderItem.new(order_item_params)
     @order = current_order
     params = order_item_params
     @order_item = @order.order_items.find_by(item_id: params[:item_id])

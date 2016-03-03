@@ -9,6 +9,7 @@
         = link_to 'Show', item
         br
         = link_to 'Retire', item, data: {:confirm => 'Are you sure?'}, :method => :delete
+        br
         = image_tag item.image_url(:thumb).to_s
     .col-xs-4
       = form_for order_item, remote: true do |f|
