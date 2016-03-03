@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.1'
-
+gem 'protected_attributes'
 gem 'devise'
 gem 'cancan'
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -40,9 +40,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Use slim for reduce the syntax to the essential parts.
 gem 'slim-rails'
 
+# Use carrierwave for image upload
+gem "carrierwave"
+# Use rmagick for resize images properly
+gem "rmagick"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do

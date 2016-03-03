@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource except: [:create]
+  load_and_authorize_resource except: [:create,:search]
   # GET /categories
   # GET /categories.json
   def index
@@ -19,6 +19,14 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+  end
+
+  def search
+    @category = Category.find(params[:category][:name])
+    respond_to do |format|
+      format.html  {"items/search"}
+      format.json { render json: @category }
+    end
   end
 
   # POST /categories
@@ -69,6 +77,6 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :item_id)
     end
 end

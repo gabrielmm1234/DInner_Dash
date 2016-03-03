@@ -2,34 +2,10 @@
 
 h1 Listing items
 
-table.table.table-hover.table-responsive
+= render "categoria_row"
+- @items.each do |item|
+	= render "item_row", item: item, order_item: @order_item
 
-  thead
-    tr
-      th ID
-      th Name
-      th Description
-      th Price
-      th
-      th
-      th
-
-  tbody
-    - @items.each do |item|
-      tr
-        td 
-          strong
-            = item.id
-        td = item.Name
-        td = item.Description
-        td = formata_preco(item.Price)
-        td = item.Price
-        - if can? :read,Item
-          td = link_to 'Show', item
-        - if can? :update,Item
-          td = link_to 'Edit', edit_item_path(item)
-        - if can? :destroy,Item
-          td = link_to 'Destroy', item, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 -if can? :create,Item

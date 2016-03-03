@@ -1,0 +1,29 @@
+.row.container-fluid
+
+
+h1 Listing orders
+= render 'order_status_row'
+table.table.table-hover.table-responsive
+  thead
+    tr
+      th ID
+      th Purchaser Name
+      th Purchaser Email
+      th status
+      th total
+      th
+      th
+
+  tbody
+    - @orders.each do |order|
+      tr
+        td 
+          strong 
+            = order.id
+        td = order.user.first_name
+        td = order.user.email
+        td = order.order_status.name
+        td = order.subtotal
+        td = link_to 'Show', order
+        -if can? :destroy, Order
+          td = link_to 'Destroy', order, data: {:confirm => 'Are you sure?'}, :method => :delete

@@ -1,21 +1,35 @@
 nav.navbar.navbar-default
 	div.container-fluid
 		div.navbar-header
-			span.navbar-brand Dinner Dash
+			a.navbar-brand href='/home' Dinner Dash
 		div.collapse.navbar-collapse
 			ul.nav.navbar-nav
 				li
 					-if can? :manage, Category
 						a href= categories_path Categorias
-
+					
+				li			
 					-if can? :manage, Profile
 						a href= profiles_path Profiles
 				li
-					-if can? :manage, Item
 						a href= items_path Items
+
+				li
+					-if can? :manage, User
+						a href= '/members' Members
+				li
+					-if can? :read, Order
+						a href= orders_path Orders
+				li
+					-if !session[:order_id].nil?
+						= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "cart-text btn btn-link" 
 			ul.nav.navbar-nav.navbar-right
 				-if user_signed_in?
 						span = current_user.first_name
+
+				li
+					= render 'layouts/cart_text'
+
 				li
 					- if user_signed_in?
 						= link_to "Sign out", destroy_user_session_path, :method => :delete

@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
+  get 'order_statuses/search_orders'
+
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
   devise_for :users,:controllers => { registrations: 'users/registrations' }
   resources :items
   resources :categories
   resources :profiles
-  root to: "items#index"
+  resources :orders
+  
+  post 'order_statuses/search_orders' => 'order_statuses#search_orders'
+  post '/update' => 'orders#update'
+  post '/search' => 'categories#search'
+  root to: "home#index"
+  get '/home' => 'home#index'
+  get '/members' => 'users#index'
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

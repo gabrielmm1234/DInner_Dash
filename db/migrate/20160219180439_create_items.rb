@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration
     create_table :items do |t|
       t.string :Name
       t.string :Description
-      t.float :Price
+      t.decimal :Price, :precision => 12, :scale => 2
 
       t.timestamps null: false
     end
